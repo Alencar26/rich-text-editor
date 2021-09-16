@@ -1,33 +1,146 @@
-*,
-*:before,
-*:after {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: 'Roboto Mono';
+  color: #7E7E7E;
+}
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-.toolbar {}
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10vh 90vh;
 
-.tool-list {
+  grid-template-areas: "header"
+                        "main";
+}
+
+header{
+  grid-area: header;
+}
+main {
+  grid-area: main;
+
   display: flex;
-  flex-flow: row nowrap;
+
+  overflow-y: scroll;
+}
+
+button {
+  cursor: pointer;
+}
+
+.topbar{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+
+  grid-template-areas: "theme tools actions";
+  border-bottom: solid 1px #F8F8F8;
+}
+
+#left-bar {
+  grid-area: theme;
+  justify-self: end;
+  align-self: center;
+}
+#center-bar {
+  grid-area: tools;
+
+  justify-self: center;
+  align-self: center;
+}
+#rigth-bar {
+  grid-area: actions;
+  justify-self: start;
+  align-self: center;
+}
+
+.topbar div {
+  margin: 15px 0;
+}
+
+.tool-btn {
+  width: 30px;
+  height: 30px;
+
+  /* #F2F2F2 <-- quando presionado*/
+  background: #fff;
+
+  border-radius: 5px;
+  padding: 7px;
+  margin: 0.5px;
+}
+
+.toolbar button:hover {
+  filter: brightness(0.9);
+}
+
+ul {
+  display: flex;
   list-style: none;
-  padding: 0;
-  margin: 1rem;
-  overflow: hidden;
-  /*border-radius: 10px;*/
+  align-items: center;
 }
 
-.tool {}
-
-.tool--btn {
-  display: block;
-  border: none;
-  padding: .5rem;
-  font-size: 20px;
+path {
+  fill: none;
+  stroke: #999999;
 }
 
-#output {
-  height: 400px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  margin: 1rem;
-  padding: 1rem;
+.svg-not-stroke {
+  fill: #999999;
+  stroke: none;
+}
+
+.theme{
+  fill: #FCDD00;
+}
+
+select, option {
+  color: #999999;
+  font-weight: 300;
+  margin: 0 20px;
+}
+
+select:hover {
+  color: #8B8B8B;
+}
+
+
+.action-btn {
+  padding: 5px 16px;
+  border-radius: 2px;
+  font-weight: 400;
+}
+
+#descartar-btn{
+  color: #B3B3B3;
+  border: solid 1px #d9d9d9;
+  background-color: #fff;
+}
+#descartar-btn:hover {
+  filter: brightness(1.05);
+}
+
+#salvar-btn{
+  color: #F7F7F7;
+  border: solid 1px #21D9AA;
+  background-color: #21D9AA;
+}
+#salvar-btn:hover {
+  filter: brightness(1.05);
+}
+
+/**/
+
+#textbox {
+  width: 760px;
+  
+  margin: 100px 25%;
+  
 }

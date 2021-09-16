@@ -24,5 +24,6 @@ for (let btn of buttons) {
     } else {
       document.execCommand(cmd, false, null);
     }
+
   })
 }
